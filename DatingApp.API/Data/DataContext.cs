@@ -11,5 +11,6 @@ namespace DatingApp.API.Data
         //Name specified here 'Values' becomes name of table when 
         //scafolded.
         public DbSet<Value> Values {get; set;}
+        public DbSet<User> Users {get; set;}
     }
 }
