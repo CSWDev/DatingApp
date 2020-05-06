@@ -40,6 +40,7 @@ namespace DatingApp.API
             services.AddControllers()
                 .AddNewtonsoftJson();
             services.AddCors();
+            services.Configure<CloudinarySettings>(Configuration.GetSection("CloudinarySettings"));
             services.AddAutoMapper(typeof(DatingRepository).Assembly);
             //created once per request, uses same instance in calls from same request.
             services.AddScoped<IAuthRepository, AuthRepository>();
@@ -82,16 +83,18 @@ namespace DatingApp.API
                 });
             }
 
-            //app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
-            //determines routes to controllers
-            app.UseRouting();
+
+
 
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            // determines routes to controllers
+            app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //maps controller endpoints to application
+            // maps controller endpoints to application
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();                

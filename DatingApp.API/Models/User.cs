@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DatingApp.API.Models
 {
+    [Table("Users")]
     public class User
     {
         public int Id { get; set; }
