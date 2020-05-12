@@ -11,6 +11,10 @@ import { NgxGalleryModule } from 'ngx-gallery-9';
 import { FileUploadModule } from 'ng2-file-upload';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TimeagoModule } from 'ngx-timeago';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { CommonModule } from '@angular/common';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+
 
 
 import { AppComponent } from './app.component';
@@ -53,6 +57,7 @@ export function tokenGetter() {
    ],
    imports: [
       BrowserModule,
+      CommonModule,
       BrowserAnimationsModule,
       HttpClientModule,
       FormsModule,
@@ -63,7 +68,9 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoutes),
       NgxGalleryModule,
       FileUploadModule,
+      PaginationModule.forRoot(),
       TimeagoModule.forRoot(),
+      ButtonsModule.forRoot(),
       JwtModule.forRoot({
          config: {
             tokenGetter,
